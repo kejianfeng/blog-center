@@ -1,0 +1,67 @@
+.item {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 18px 0 rgba(0,0,0,.05);
+    transition: all .6s;
+    img {
+        width: 100%;
+        border-radius: 10px;
+    }
+    .mask {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        background-color: rgba(0,0,0,.6);
+        .intro {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            color: #fff;
+            font-size: 14px;
+            line-height: 28px;
+            text-align: left;
+            padding: 10px;
+        } 
+        .like {
+            display: inline-block;
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #fff;
+            top: 20px;
+            right: 20px;
+            color: #000;
+            text-align: center;
+            line-height: 50px;
+            cursor: pointer;
+            .like_num {
+                position: absolute;
+                display: inline-block;
+                height: 14px;
+                line-height: 14px;
+                top: -6px;
+                right: -6px;
+                font-size: 10px;
+                padding: 0px 6px;
+                background-color: #f46;
+                border-radius: 10px;
+                color: #fff;
+            }
+            i {
+                font-size: 20px;
+            }
+        }
+    }
+    &:hover .mask {
+        display: block;
+    }
+    &:hover {
+        transform: translateY(-3px);
+    } 
+}

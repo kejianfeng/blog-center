@@ -1,0 +1,45 @@
+$size: (
+  sm: 12px, nm: 14px, md: 16px, lg: 20px, xl: 24px
+);
+@each $key, $val in $size {
+  .fs-#{$key} {
+    font-size: $val;
+  }
+};
+
+@each $val in (5,10,20, 30, 40, 50 ) {
+  .mt#{$val} {
+    margin-top: #{$val}px;
+  }
+  .mr#{$val} {
+    margin-right: #{$val}px;
+  }
+  .ml#{$val} {
+    margin-left: #{$val}px;
+  }
+  .mb#{$val} {
+    margin-bottom: #{$val}px;
+  }
+}
+
+$mcolor: #828d95;
+
+.hide {
+  display: none;
+}
+
+.container {
+  width: 900px;
+  height: auto;
+  margin: 0 auto;
+  box-sizing: border-box;
+  .section {
+    
+  }
+}
+.label_style {
+  display: inline-block;
+  font-size: 12px;
+  color: #aaa;
+  margin-right: 10px;
+}
