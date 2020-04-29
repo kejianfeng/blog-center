@@ -1,0 +1,46 @@
+.comment {
+  .title {
+    display: block;
+    margin: 12px 0 0;
+    font-size: 16px;
+    color: #555;
+  }
+  .box_bd {
+    .content_input {
+      .area {
+        display: inline-block;
+        margin: 20px 0;
+        width: 60%;
+        min-height: 150px;
+        padding: 10px;
+      }
+      .form_item {
+        .label {
+          display: block;
+          .star {
+            color: red;
+          }
+        }
+        input {
+          display: inline-block;
+          border: 1px solid #ccc;
+          font-size: 14px;
+          margin: 10px 0 20px;
+          padding: 7px 9px;
+          width: 250px;
+        }
+      }
+    }
+  }
+  .submit {
+    display: inline-block;
+    width: 160px;
+    height: 40px;
+    outline: none;
+    background: #777;
+    line-height: 40px;
+    color: #fff;
+    border: none;
+    text-align: center;
+  }
+}

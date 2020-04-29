@@ -26,7 +26,7 @@ class Blog extends Component {
           <div className={styles.content}>
             <div className={styles.blog_wrap}>
               <div className={styles.blog_cover}>
-                <img src="https://images.vrm.cn/jx/2020/01/24/8e57c159882179.5a5901b214c44.jpg" className={styles.cover_img}></img>
+                <img src="https://images.vrm.cn/jx/2020/01/24/8e57c159882179.5a5901b214c44.jpg" className={styles.cover_img} alt="."></img>
                 <div className={styles.motto}>
                   <h2>烽芒</h2>
                   <p>若能光芒四射 何必自甘沉沦</p>

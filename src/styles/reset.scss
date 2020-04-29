@@ -23,6 +23,10 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+html {
+	width: 100%;
+	overflow-x: hidden;
+}
 body {
 	width: 100%;
 	line-height: 1;
@@ -47,4 +51,22 @@ table {
 a {
 	text-decoration: none;
 	color: #fff;
+}
+
+
+input,
+textarea {
+	&:focus {
+		outline: none;
+	}
+}
+
+::-ms-input-placeholder {
+	color: #aaa;
+}
+::-webkit-input-placeholder {
+	color: #aaa;
+}
+::placeholder {
+	color: #aaa
 }

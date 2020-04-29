@@ -9,6 +9,7 @@ class ArticleCard extends Component {
   }
   enter_detail(ev,id, content) {
     ev.preventDefault();
+    console.log(id)
     this.props.history.push({
       pathname:'/article/article-detail',
       search: `?id=${id}`,
@@ -21,7 +22,7 @@ class ArticleCard extends Component {
     })
   }
   render() {
-    const {id,title, summary, createTime, updateTime, topic, labels, commentSum, clickSum, content} = this.props.articleList
+    const {id,title, summary, createTime, updateTime, topic, labels, commentSum, clickSum} = this.props.articleList
       return (
           <div className={styles.article_wrap}>
             <div className={styles.aricle_hd}>
@@ -50,7 +51,6 @@ class ArticleCard extends Component {
                 <span className="label_style">阅读({clickSum})</span>
                 <span className="label_style">评论({commentSum})</span>
                 <span className={`${styles.article_link} label_style`} >全文链接-></span>
-
               </div>
             </div>
           </div>

@@ -18,7 +18,7 @@ class PicWorks extends Component {
           column_2 = [],
           column_3 = [];
     
-    const listData = (await request("/picworks/piclist", "get")).data
+    const listData = (await request("/picwork/picList", "get")).data
     var i  = 0;
     const list_length = listData.length
     while(i < list_length) {
@@ -34,7 +34,7 @@ class PicWorks extends Component {
   }
   render() {
     return (
-      <div className="container">
+      <div className="lg-container">
         <div className="section">
           <div className={styles.content}>
             <div className={styles.masonry}>

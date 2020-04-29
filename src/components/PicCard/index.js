@@ -13,17 +13,17 @@ class PicCard extends Component {
     }
     addLike(index) {
       this.setState({
-        likeSum: ++this.state.likeSum 
+        likeSum: this.state.likeSum + 1
       })
     }
     render() {
-        const {intro, labels, picUrl, likeSum} = this.state
+        const {picText, labels, picUrl, likeSum} = this.state
         return (
             <div className={styles.item}>
                       <img src={picUrl} alt="."/>
                       <div className={`${styles.mask} hide`}>
                         <p className={styles.intro}>
-                          {intro}
+                          {picText}
                           <span className={labels ? '' : 'hide'}>#</span>
                           {
                             labels.trim().split(',').map((label, index) => (

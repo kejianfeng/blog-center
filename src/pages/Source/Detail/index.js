@@ -1,67 +1,102 @@
 import React, { Component } from "react";
 import styles from "./index.module.scss";
+import qs from "qs";
+import { request } from "../../../utils/request";
 // import { request } from "../../utils/request";
 class SourceDetail extends Component {
   constructor(props) {
     super(props);
     this.state = {
-    //   sourceList: []
+      source: {},
     };
   }
-  
+  async componentDidMount() {
+    // request('/souce/detail')
+    const search = this.props.history.location.search;
+    // console.log('阿盖好', )
+    const result = await request(
+      "/source/detail",
+      "post",
+      qs.parse(search.replace(/\?/, ""))
+    );
+    result.code === 200 &&
+      this.setState({
+        source: result.data,
+      });
+    console.log(result);
+  }
   render() {
+    const {
+      sourceIcon,
+      sourceName,
+      sourceIntro,
+      sourceLink,
+      sourcePassword,
+      sourceShoot,
+      sourceLabels,
+    } = this.state.source;
     return (
       <div className="container">
         <div className="section">
           <div className={styles.content}>
-              <div className={styles.detail_wrap}>
-                <section>
+            <div className={styles.detail_wrap}>
+              <section>
                 <div className={styles.detail_hd}>
-                    <h3>
-                        <b>vue资源</b>
-                    </h3>
+                  <h3>
+                    <b>{sourceName}</b>
+                  </h3>
                 </div>
                 <div className={styles.detail_bd}>
-                    <div className={styles.detail_cover}>
-                        <img src="https://www.niudana.com/uploadfile/201611/20/155400381.png" alt="." className={styles.bg_img}></img>
-                        <img src="https://www.niudana.com/uploadfile/201611/20/155400381.png" alt="." className={styles.foucus_img}></img>
+                  <div className={styles.detail_cover}>
+                    <img
+                      src={sourceIcon}
+                      alt="."
+                      className={styles.bg_img}
+                    ></img>
+                    <img
+                      src={sourceIcon}
+                      alt="."
+                      className={styles.foucus_img}
+                    ></img>
+                  </div>
+                  <div className={styles.detail_intro}>
+                    <div className={styles.item}>
+                      <span className={styles.item_hd}>介绍:</span>
+                      <span className={styles.item_bd}>{sourceIntro}</span>
                     </div>
-                    <div className={styles.detail_intro}>
-                        <div className={styles.item}>
-                            <span className={styles.item_hd}>介绍:</span>
-                            <span className={styles.item_bd}>Adobe旗下的设计师交流平台，来自世界各地的设计师在这里分享自己的作品。</span>
-                        </div>
-                        <div className={styles.item}>
-                             <span className={styles.item_hd}>标签:</span>
-                             <span className={styles.item_bd}>
-                                 <b>前端</b>
-                                 <b>vue</b>
-                             </span>
-                        </div>
-                        <div className={styles.item}>
-                             <span className={styles.item_hd}>链接:</span>
-                             <span className={styles.item_bd}>12255336</span>
-                        </div>
-                        <div className={styles.item}>
-                             <span className={styles.item_hd}>密码:</span>
-                             <span className={styles.item_bd}>12255336</span>
-                        </div>
+                    <div className={styles.item}>
+                      <span className={styles.item_hd}>标签:</span>
+                      <span className={styles.item_bd}>
+                        {sourceLabels &&
+                          sourceLabels
+                            .split(",")
+                            .map((label) => <b key={label}>{label}</b>)}
+                      </span>
                     </div>
+                    <div className={styles.item}>
+                      <span className={styles.item_hd}>链接:</span>
+                      <span className={styles.item_bd}>{sourceLink}</span>
+                    </div>
+                    <div className={styles.item}>
+                      <span className={styles.item_hd}>密码:</span>
+                      <span className={styles.item_bd}>{sourcePassword}</span>
+                    </div>
+                  </div>
                 </div>
-                </section>
-                <section>
+              </section>
+              <section>
                 <div className={styles.detail_hd}>
-                    <h3>
-                        <b>资源截图</b>
-                    </h3>
+                  <h3>
+                    <b>资源截图</b>
+                  </h3>
                 </div>
                 <div className={styles.shoot}>
-                    <div className={styles.shoot_wrap}>
-                    <img src={require('../../../assets/images/shoot.png')} alt="."></img>
-                    </div>
+                  <div className={styles.shoot_wrap}>
+                    <img src={sourceShoot} alt="."></img>
+                  </div>
                 </div>
-                </section>
-              </div>
+              </section>
+            </div>
           </div>
         </div>
       </div>

@@ -9,7 +9,7 @@ class BlogCard extends Component {
   }
   render() {
     console.log()
-    const {createTime, blogImg, blogWords, clickSum, commentSum,id} = this.props.blog;
+    const {createTime, blogPic, mianBody, clickSum, commentSum, id, labels} = this.props.blog;
     const date_ = createTime.split("-");
     return (
       <div className={styles.blog_card}>
@@ -17,7 +17,7 @@ class BlogCard extends Component {
           <div className={styles.time_wrap}>
             <div className={styles.time_circle}>
               <span className={styles.day}>{date_[1]}</span>
-              <span className={styles.month}>{date_[2]}月</span>
+              <span className={styles.month}>{date_[2]}日</span>
             </div>
             <span className={styles.year}>{date_[0]}</span>
           </div>
@@ -25,17 +25,21 @@ class BlogCard extends Component {
         <div className={styles.card_right}>
           <div className={styles.blog_bd}>
             <div className={styles.content}>
-              {blogImg && (
+              {blogPic && (
                 <div className={styles.blog_img}>
-                  <img src={blogImg} alt="."/>
+                  <img src={blogPic} alt="."/>
                 </div>
               )}
-              {blogWords && <p className={styles.blog_words}>{blogWords}</p>}
+              {mianBody && <p className={styles.blog_words}>{mianBody}</p>}
             </div>
             <div className={styles.label_wrap}>
-              <span className={styles.label}>
-                <i>●</i>2020的年
-              </span>
+              {
+                labels.split(',').map(label => (
+                  <span className={`${styles.label} mr10`} key={label}>
+                  <i>●</i>{label}
+                  </span>
+                ))
+              }
             </div>
             <div className={styles.bottom_info}>
               <span>热度({clickSum})</span>

@@ -22,8 +22,7 @@ class Source extends Component {
     })
   }
   async componentWillMount() {
-    const sourceList = (await request("/source/sourcelist", "get")).data;
-    console.log(sourceList);
+    const sourceList = (await request("/source/sourceList", "get")).data;
     this.setState({
       sourceList: sourceList
     });
@@ -37,11 +36,11 @@ class Source extends Component {
               {this.state.sourceList.map(item => (
                 <div className={styles.source_card} key={item.id}>
                   <div className={styles.thumbnail}>
-                    <img src={item.thumbnail} alt="#"></img>
+                    <img src={item.sourceIcon} alt="#"></img>
                   </div>
                   <div className={styles.card_bd}>
-                    <h4 className={styles.title}>{item.title}</h4>
-                    <p className={styles.intro}>{item.intro}</p>
+                    <h4 className={styles.title}>{item.sourceName}</h4>
+                    <p className={styles.intro}>{item.sourceIntro}</p>
                   </div>
                   <div className={styles.link} onClick={(ev) => {this.enter_detail(ev, item.id)}}>
                     <i className="iconfont icon-qianwang-xiayibu"></i>

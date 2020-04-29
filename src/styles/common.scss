@@ -21,6 +21,21 @@ $size: (
     margin-bottom: #{$val}px;
   }
 }
+@each $val in (5,10,20, 30, 40, 50 ) {
+  .pt#{$val} {
+    padding-top: #{$val}px;
+  }
+  .pr#{$val} {
+    padding-right: #{$val}px;
+  }
+  .pl#{$val} {
+    padding-left: #{$val}px;
+  }
+  .pb#{$val} {
+    padding-bottom: #{$val}px;
+  }
+}
+
 
 $mcolor: #828d95;
 
@@ -37,9 +52,19 @@ $mcolor: #828d95;
     
   }
 }
+.lg-container {
+  width: 1200px;
+  height: auto;
+  margin: 0 auto;
+  box-sizing: border-box;
+  .section {
+    padding:20px;
+  }
+}
 .label_style {
   display: inline-block;
   font-size: 12px;
   color: #aaa;
   margin-right: 10px;
 }
+
