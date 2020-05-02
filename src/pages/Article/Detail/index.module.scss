@@ -1,6 +1,5 @@
 .content {
   background-color: #fff;
-  margin-top: 20px;
 	padding: 65px 45px 50px;
   text-align: left;
   .article_hd {
@@ -41,6 +40,24 @@
 		}
 		.next_article {
 
+		}
+	}
+}
+.like {
+	text-align: center;
+	.like_box {
+		display: inline-block;
+		width: 60px;
+		height: 60px;
+		margin: 40px 0;
+		border: 2px solid #aaa;
+		border-radius: 50%;
+		line-height: 50px !important;
+		font-size: 40px;
+		color: #aaa;
+		cursor: pointer;
+		i {
+			font-size: 30px !important;
 		}
 	}
 }

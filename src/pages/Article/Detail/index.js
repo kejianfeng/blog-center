@@ -2,11 +2,71 @@ import React, { Component } from "react";
 import styles from "./index.module.scss";
 import { withRouter } from "react-router-dom";
 import Comment from "../../../components/comment/index";
+import CommentList from "../../../components/CommentList/index";
 // import { request } from "../../utils/request";
+
+const commentData = [
+  {
+    id:12,
+    nickname:'jAMKI小剑烽',
+    comment:'那....当然不是，哈哈哈，图是原文作者的，学习了，以后向这个标准对齐',
+    createDate: '2020-04-30',
+    quote: {
+      nickname:' jamki',
+      comment: '我发现你真是一条狗'
+
+    }
+  },
+  {
+    id:45,
+    nickname:'jAMKI小剑烽',
+    comment:'那....当然不是，哈哈哈，图是原文作者的，学习了，以后向这个标准对齐',
+    createDate: '2020-04-30'
+  },
+  {
+    id:178,
+    nickname:'jAMKI小剑烽',
+    comment:'那....当然不是，哈哈哈，图是原文作者的，学习了，以后向这个标准对齐',
+    createDate: '2020-04-30',
+    quote: {
+      nickname:' jamki',
+      comment: '我发现你真是一条狗'
+
+    }
+  }
+]
 class ArticleDetail extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      articleId: null
+    };
+    this.commentref = this.commentref.bind(this)
+    this.hanleQuote = this.hanleQuote.bind(this)
+    this.submitComment = this.submitComment.bind(this)
+  }
+  hanleQuote(value) { //commentList子组件调用该方法，输出引用内容
+    this.child.setQuote(value)
+  }
+  commentref(ref) { //绑定comment组件上下文到this.child上
+    this.child = ref
+  }
+  submitComment(info) {
+    console.log('呀呀呀呀', info)
+  }
+  componentWillMount() {
+    console.log(this.props)
+    const articleId =  this.props.location.search.match(/(?<=id=)\d+$/)
+    if (articleId) {
+      this.setState({
+        articleId: articleId[0]
+      })
+    }else {
+      this.props.history.push('/article')
+      return
+    }
+    
+
   }
   render() {
     const { articlData } = this.props.location.state;
@@ -14,7 +74,7 @@ class ArticleDetail extends Component {
       <div>
         <div className="container">
           <div className="section">
-            <div className={styles.content}>
+            <div className={`${styles.content} mt20`}>
               <article>
                 <div className={styles.article_hd}>
                   <h1 className={styles.title}>{articlData.title}</h1>
@@ -62,12 +122,15 @@ class ArticleDetail extends Component {
           </div>
         </div>
         <div className={styles.like}>
-          <span class="icon iconfont icon-dianzan"></span>
+          <span className={styles.like_box}>
+            <i className="icon iconfont">&#xe61a;</i>
+          </span>
         </div>
         <div className="container">
           <div className="section">
             <div className={styles.content}>
-              <Comment />
+              <CommentList commentData={commentData} hanleQuote={this.hanleQuote}/>
+              <Comment commentref={this.commentref} submitComment={this.submitComment}/>
             </div>
           </div>
         </div>

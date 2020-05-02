@@ -61,10 +61,30 @@ $mcolor: #828d95;
     padding:20px;
   }
 }
+// 标签样式
 .label_style {
   display: inline-block;
   font-size: 12px;
   color: #aaa;
   margin-right: 10px;
+}
+
+// 引用评论样式
+.quote {
+  display: block;
+  margin: 10px 0;
+  padding: 10px 14px;
+  font-size: 14px;
+  border-left: 3px solid #eee;
+  background-color: #f8f8f8;
+  word-break: break-all;
+  word-wrap: break-word;
+  white-space: pre-line;
+  span {
+    display: block;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
 }
 

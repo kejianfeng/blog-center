@@ -1,0 +1,41 @@
+.comment_count {
+  display: inline-block;
+  margin: 20px 0 60px;
+  font-size: 24px;
+}
+.comment_box {
+  font-size: 164x;
+  color: #666;
+  margin: 20px 0;
+  border-bottom: 1px dashed #aaa;
+  padding-bottom: 20px;
+  .box_hd {
+    .user_name {
+      font-weight: bold;
+      &::before {
+        display: inline-block;
+        content: '';
+        width: 2px;
+        height: 16px;
+        background: #aaa;
+        margin-right: 10px;
+        vertical-align: middle;
+      }
+    }
+  }
+  .box_bd {
+    .comment_content {
+      margin: 12px 0;
+      line-height: 1.4;
+    }
+  }
+  .bottom {
+    display: flex;
+    color: #aaa;
+    font-size: 14px;
+    justify-content: space-between;
+    .reply {
+      cursor: pointer;
+    }
+  }
+}
