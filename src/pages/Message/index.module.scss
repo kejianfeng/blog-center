@@ -1,0 +1,16 @@
+.box_main {
+  box-sizing: content-box;
+  margin: 20px auto;
+  max-width: 1400px;
+  text-align: left;
+  .comment_out_box {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 4px;
+    .comment_bd {
+        display: inline-block;
+        width: 100%;
+        text-align: left;
+    }
+}
+}

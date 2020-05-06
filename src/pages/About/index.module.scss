@@ -1,0 +1,24 @@
+.box_main {
+  box-sizing: content-box;
+  margin: 20px auto;
+  max-width: 1400px;
+  text-align: left;
+  .box_about {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 4px;
+    .title {
+      font-size: 20px;
+      width: 100%;
+      margin: 10px 0 20px;
+      padding-bottom: 10px;
+      font-size: 24px;
+      border-bottom: 1px solid #eee;
+      text-align: left;
+      .icon_about {
+        font-size: 20px;
+        padding-right: 10px;
+      }
+    }
+}
+}

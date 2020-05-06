@@ -1,0 +1,60 @@
+.person {
+  width: 350px;
+  padding: 40px;
+  height: auto;
+  background-color: #fff;
+  text-align: center;
+  box-sizing: border-box;
+  border-radius: 4px;
+  .avator {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    border-radius: 50%;
+    overflow: hidden;
+    img {
+      width: 100%;
+    }
+  }
+  .myname {
+    margin-top: 20px;
+    color: #666;
+    font-size: 18px;
+    padding-bottom: 30px;
+    // border-bottom: 1px solid #ccc;
+  }
+  .data_show {
+    display: flex;
+    padding-bottom: 30px;
+    justify-content: space-around;
+    border-bottom: 1px solid #eee;
+  }
+  .show_item {
+    flex: 1;
+    span {
+      display: inline-block;
+      margin-bottom: 10px;
+      font-size: 24px;
+      font-weight: 800;
+      color: #333;
+    }
+  }
+  .border_edge {
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+  }
+  .contact_link {
+    display: flex;
+    padding-top: 30px;
+    justify-content: space-around;
+    a {
+      display: inline-block;
+      color: #666;
+      span {
+        display: inline-block;
+        padding-right: 5px;
+      }
+    }
+  }
+
+}

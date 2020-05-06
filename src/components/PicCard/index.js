@@ -1,27 +1,35 @@
 import React, { Component } from "react";
 import styles from "./index.module.scss";
+import Zmage from 'react-zmage'
+import { request } from "../../utils/request";
 // import cloneDeep from 'lodash/cloneDeep'
 
 class PicCard extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          ...this.props.picWork
+          ...this.props.picWork,
+          isHideClick: false
         }
         this.addLike = this.addLike.bind(this)
 
     }
-    addLike(index) {
+    addLike(e, id) {
       this.setState({
-        likeSum: this.state.likeSum + 1
+        likeSum: this.state.likeSum + 1,
+        isHideClick: true
+      })
+      request('/picwork/like', 'post', {
+        id
       })
     }
     render() {
-        const {picText, labels, picUrl, likeSum} = this.state
+        const {id, picText, labels, picUrl, likeSum, isHideClick} = this.state
         return (
             <div className={styles.item}>
-                      <img src={picUrl} alt="."/>
+                      <Zmage src={picUrl} alt="."/>
                       <div className={`${styles.mask} hide`}>
+                      <span className={styles.jump} onClick={() => Zmage.browsing({ src:picUrl })}>查看大图</span>
                         <p className={styles.intro}>
                           {picText}
                           <span className={labels ? '' : 'hide'}>#</span>
@@ -32,7 +40,7 @@ class PicCard extends Component {
                             )
                           }
                         </p>
-                        <div className={styles.like} onClick={this.addLike}>
+                        <div className={styles.like} onClick={(e) => this.addLike(e, id)} style={{'pointerEvents': isHideClick ? 'none' : 'auto'}}>
                           <i className={`${styles.icon} iconfont icon-dianzan1`}></i>
                           {
                             !!likeSum && (

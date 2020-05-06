@@ -13,25 +13,26 @@ class CommentList extends Component {
     this.props.hanleQuote(quoteInfo)
   }
   render() {
+    const {commentData} = this.props
     return (
       <div className={styles.coment_list}>
-        <span className={styles.comment_count}>留言(16)</span>
-        {this.props.commentData.map((item) => (
+        <span className={styles.comment_count}><span className={`icon iconfont ${styles.icon_message}`}>&#xe749;</span>留言板({commentData.length})</span>
+        {commentData.map((item) => (
           <div className={styles.comment_box} key={item.id}>
             <div className={styles.box_hd}>
               <span className={styles.user_name}>{item.nickname}</span>
             </div>
             <div className={styles.box_bd}>
-              {item.quote && (
+              {item.quoteComment && (
                 <blockquote className='quote'>
-                  <span>引用 {item.quote.nickname} 的发言</span>
-                  {item.quote.comment}
+                  <span>引用 {item.quoteNickname} 的发言</span>
+                  {item.quoteComment}
                 </blockquote>
               )}
               <p className={styles.comment_content}>{item.comment}</p>
             </div>
             <div className={styles.bottom}>
-              <span className={styles.timestamp}>{item.createDate}</span>
+              <span className={styles.timestamp}>{item.createTime}</span>
               <span className={styles.reply} onClick={(ev) => {this.quote(ev, item.nickname, item.comment )}}>引用</span>
             </div>
           </div>

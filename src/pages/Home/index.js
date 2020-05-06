@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import ShardCard from "../../components/ShareCard/index";
 import HeadBar from '../../components/HeadBar'
 import { request } from "../../utils/request";
 import styles from "./index.module.scss";
@@ -18,7 +17,6 @@ class Home extends Component {
         !typeArr.includes(item.classify) && typeArr.push(item.classify)
       
       });
-      console.log('分类数组', typeArr)
       const mapList = typeArr.map(type => {
         let obj = Object.create(null)
         obj.type = type
@@ -26,7 +24,6 @@ class Home extends Component {
         dataList.forEach(item => {
           item.classify === type && obj.data.push(item)
         })
-        console.log('新对象', obj)
         return obj
       })
       console.log(mapList)
@@ -67,7 +64,6 @@ class Home extends Component {
                         <span className={styles.site_name}>{item.site_name}</span>
                       </a>
                     </li>
-                    // <ShardCard cardData={item} key={item.id}></ShardCard>
                   ))}
                 </ul>
               </div>

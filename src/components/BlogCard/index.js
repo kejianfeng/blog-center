@@ -10,6 +10,7 @@ class BlogCard extends Component {
   render() {
     console.log()
     const {createTime, blogPic, mianBody, clickSum, commentSum, id, labels} = this.props.blog;
+    const {isShowButton} = this.props;
     const date_ = createTime.split("-");
     return (
       <div className={styles.blog_card}>
@@ -41,17 +42,15 @@ class BlogCard extends Component {
                 ))
               }
             </div>
-            <div className={styles.bottom_info}>
+            {
+              isShowButton && <div className={styles.bottom_info}>
               <span>热度({clickSum})</span>
               <span>评论({commentSum})</span>
                 <NavLink to={{
-                  pathname: '/blog/blog-detail',
-                  search: `?id=${id}`,
-                  state: {
-                    blogData: this.props.blog
-                  }
+                  pathname: `/blog/${id}`
                 }}>全文链接</NavLink>
             </div>
+            }
           </div>
           <div className={styles.blog_line}></div>
         </div>

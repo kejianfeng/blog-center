@@ -77,6 +77,18 @@
           }
         }
       }
+      .copy {
+        display: inline-block;
+        width: 50px;
+        height: 20px;
+        line-height: 20px;
+        margin-left: 20px;
+        text-align: center;
+        color: #333;
+        border: 1px solid #aaa;
+        border-radius: 20px;
+        cursor: pointer;
+      }
     }
     .shoot {
         margin-top: 20px;

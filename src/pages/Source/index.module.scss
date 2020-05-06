@@ -11,6 +11,7 @@
         .source_card {
             display: flex;
             align-items: center;
+            justify-content: space-between;
             width:  380px;
             height: 64px;
             margin-bottom: 20px;
@@ -18,10 +19,11 @@
             padding: 14px 16px;
             color: #A1A7B7;
             overflow: hidden;
-            // text-overflow: ellipsis;
-            // white-space: nowrap;
             border-radius: 5px;
             background-color: rgba($color: #000000, $alpha: .02);
+            .box_left {
+                display: flex;
+            }
             .thumbnail {
                 display: inline-block;
                 flex-shrink: 0;
@@ -39,6 +41,10 @@
                 .title {
                     font-size: 16px;
                     margin-bottom: 10px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+
                 }
                 .intro {
                     font-size: 12px;
@@ -47,6 +53,7 @@
             .link {
                 width: 100px;
                 padding-left: 20px;
+                cursor: pointer;
                 i {
                     font-size: 30px;
                 }

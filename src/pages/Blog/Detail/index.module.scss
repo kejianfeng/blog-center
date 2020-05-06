@@ -1,5 +1,17 @@
 .content {
     margin-top: 70px;
     background-color: #fff;
-	padding: 65px 30px 50px;
+    padding: 65px 30px 50px;
+    .comment_out_box {
+        padding: 10px 60px;
+        // display: flex;
+        // justify-content: end;
+        .comment_bd {
+            display: inline-block;
+            width: 584px;
+            text-align: left;
+            margin-left: 136px;
+
+        }
+    }
 }

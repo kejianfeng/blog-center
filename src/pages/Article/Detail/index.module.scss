@@ -45,19 +45,24 @@
 }
 .like {
 	text-align: center;
+	margin: 40px 0;
 	.like_box {
 		display: inline-block;
 		width: 60px;
 		height: 60px;
-		margin: 40px 0;
-		border: 2px solid #aaa;
 		border-radius: 50%;
 		line-height: 50px !important;
 		font-size: 40px;
+		border: 2px solid #aaa;
 		color: #aaa;
 		cursor: pointer;
 		i {
 			font-size: 30px !important;
 		}
+	}
+	.number {
+		display: block;
+		text-align: center;
+		margin-top: 10px;
 	}
 }

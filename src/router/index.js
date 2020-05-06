@@ -25,7 +25,7 @@ const routerConfig = [
 	},
 	{
 		name: 'article_detail',
-		path: '/article/article-detail',
+		path: '/article/:id',
 		// exact:true,
 		component:  Loadable({
 			loader: () => import('../pages/Article/Detail/index'),
@@ -45,9 +45,18 @@ const routerConfig = [
 	},
 	{
 		name: 'blog',
-		path: '/blog/blog-detail',
+		path: '/blog/:id',
 		component:  Loadable({
 			loader: () => import('../pages/Blog/Detail/index.js'),
+			loading: Loading,
+			delay:300
+		})
+	},
+	{
+		name: 'archives',
+		path: '/archives',
+		component:  Loadable({
+			loader: () => import('../pages/Archives/index.js'),
 			loading: Loading,
 			delay:300
 		})

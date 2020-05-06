@@ -6,11 +6,88 @@
   "description": "博客",
   "glyphs": [
     {
-      "icon_id": "145435",
-      "name": "时钟",
-      "font_class": "shizhong",
-      "unicode": "e62c",
-      "unicode_decimal": 58924
+      "icon_id": "869845",
+      "name": "留言",
+      "font_class": "liuyan",
+      "unicode": "e749",
+      "unicode_decimal": 59209
+    },
+    {
+      "icon_id": "12098085",
+      "name": "关于",
+      "font_class": "guanyu",
+      "unicode": "e621",
+      "unicode_decimal": 58913
+    },
+    {
+      "icon_id": "3007030",
+      "name": "归档 (17)",
+      "font_class": "guidang",
+      "unicode": "e694",
+      "unicode_decimal": 59028
+    },
+    {
+      "icon_id": "2041688",
+      "name": "CN_csdn.net",
+      "font_class": "CN_csdnnet",
+      "unicode": "e64f",
+      "unicode_decimal": 58959
+    },
+    {
+      "icon_id": "3506983",
+      "name": "csdn",
+      "font_class": "csdn",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "8279262",
+      "name": "掘金",
+      "font_class": "juejin",
+      "unicode": "e610",
+      "unicode_decimal": 58896
+    },
+    {
+      "icon_id": "886701",
+      "name": "关注",
+      "font_class": "guanzhu",
+      "unicode": "e613",
+      "unicode_decimal": 58899
+    },
+    {
+      "icon_id": "12994462",
+      "name": "关注",
+      "font_class": "guanzhu-copy",
+      "unicode": "f1b5",
+      "unicode_decimal": 61877
+    },
+    {
+      "icon_id": "7404574",
+      "name": "右",
+      "font_class": "you",
+      "unicode": "e793",
+      "unicode_decimal": 59283
+    },
+    {
+      "icon_id": "7404575",
+      "name": "左",
+      "font_class": "zuo",
+      "unicode": "e794",
+      "unicode_decimal": 59284
+    },
+    {
+      "icon_id": "6560974",
+      "name": "前往-下一步",
+      "font_class": "qianwang-xiayibu",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
+    },
+    {
+      "icon_id": "1595353",
+      "name": "点赞",
+      "font_class": "dianzan1",
+      "unicode": "e61a",
+      "unicode_decimal": 58906
     },
     {
       "icon_id": "579286",
@@ -41,18 +118,11 @@
       "unicode_decimal": 58978
     },
     {
-      "icon_id": "1595353",
-      "name": "点赞",
-      "font_class": "dianzan1",
-      "unicode": "e61a",
-      "unicode_decimal": 58906
-    },
-    {
-      "icon_id": "1817752",
-      "name": "更新",
-      "font_class": "gengxin",
-      "unicode": "e628",
-      "unicode_decimal": 58920
+      "icon_id": "5634687",
+      "name": "github",
+      "font_class": "github",
+      "unicode": "f1b4",
+      "unicode_decimal": 61876
     },
     {
       "icon_id": "4333919",
@@ -62,32 +132,18 @@
       "unicode_decimal": 58897
     },
     {
-      "icon_id": "5634687",
-      "name": "github",
-      "font_class": "github",
-      "unicode": "f1b4",
-      "unicode_decimal": 61876
+      "icon_id": "145435",
+      "name": "时钟",
+      "font_class": "shizhong",
+      "unicode": "e62c",
+      "unicode_decimal": 58924
     },
     {
-      "icon_id": "6560974",
-      "name": "前往-下一步",
-      "font_class": "qianwang-xiayibu",
-      "unicode": "e60d",
-      "unicode_decimal": 58893
-    },
-    {
-      "icon_id": "7404574",
-      "name": "右",
-      "font_class": "you",
-      "unicode": "e793",
-      "unicode_decimal": 59283
-    },
-    {
-      "icon_id": "7404575",
-      "name": "左",
-      "font_class": "zuo",
-      "unicode": "e794",
-      "unicode_decimal": 59284
+      "icon_id": "1817752",
+      "name": "更新",
+      "font_class": "gengxin",
+      "unicode": "e628",
+      "unicode_decimal": 58920
     }
   ]
 }

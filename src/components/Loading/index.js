@@ -1,4 +1,4 @@
-import React, {Conponent, Component} from "react";
+import React, {Component} from "react";
 import './index.scss'
 class Loading extends Component{
     render() {

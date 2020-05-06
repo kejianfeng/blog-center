@@ -1,0 +1,86 @@
+.box_main {
+  padding:30px;
+  background-color: #fff;
+  box-sizing: content-box;
+  margin: 20px auto;
+  max-width: 1300px;
+  text-align: left;
+  .box_hd {
+    font-size: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 10px;
+    text-align: left;
+    color: #24292c;
+    .icon_archive {
+      font-size: 22px !important;
+    }
+  }
+  .col_side {
+    width: 300px;
+    padding-right: 20px;
+    border-right: 1px solid #eee;
+  }
+  .topic_list {
+    color: #7594b3;
+    .topic_item {
+      padding: 10px 0;
+      display: flex;
+      justify-content: space-between;
+      cursor: pointer;
+    }
+  }
+  .label_list {
+    h4 {
+      font-size: 16px;
+      font-weight: bold;
+      color: #24292c;
+      padding: 30px 0;
+    }
+    .label_item {
+      font-size: 14px;
+      cursor: pointer;
+      display: inline-block;
+      padding: 4px 0;
+      border-bottom: 1px dashed #eee;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      -webkit-transition: all .4s;
+      transition: all .4s;
+      &:hover {
+        border-color: #24292c;
+      }
+    }
+  }
+  .col_main {
+    padding: 20px;
+    .article_list {
+      .archives_month {
+        margin-top: 30px;
+        .title {
+          font-size: 18px;
+          color: #24292c;
+        }
+        .article_item {
+          display: inline-block;
+          margin-right: 35px;
+          margin-top: 10px;
+          height: 45px;
+          line-height: 45px;
+          color: #666;
+          font-size: 16px;
+          border-bottom: 1px dashed #ddd;
+          transition: all .4s;
+          cursor: pointer;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          a {
+            color: #24292c;
+          }
+        }
+      } 
+  
+    }
+  }
+}

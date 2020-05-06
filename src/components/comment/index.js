@@ -46,10 +46,11 @@ class Comment extends Component {
     this.props.submitComment(info)
   }
   render() {
+    const {isComment} = this.props
     return (
       <div className={styles.comment}>
         <div className={styles.box_hd}>
-          <span className={styles.title}>评论</span>
+    <span className={styles.title}>{isComment ? '评论' : '留言'}</span>
         </div>
         <form className={styles.box_bd}>
           <div className={styles.content_input}>

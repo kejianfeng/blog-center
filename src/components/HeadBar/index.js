@@ -32,6 +32,11 @@ class HeadBar extends Component {
               </NavLink>
             </li>
             <li className="menu-item">
+              <NavLink activeClassName="active-item" to="/archives">
+                归档
+              </NavLink>
+            </li>
+            <li className="menu-item">
               <NavLink activeClassName="active-item" to="/pic-works">
                 图片作品
               </NavLink>

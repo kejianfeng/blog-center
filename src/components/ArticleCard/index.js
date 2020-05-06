@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { withRouter} from "react-router-dom";
+import { withRouter, NavLink} from "react-router-dom";
 import styles from "./index.module.scss";
 class ArticleCard extends Component {
   constructor(props) {
@@ -9,16 +9,8 @@ class ArticleCard extends Component {
   }
   enter_detail(ev,id, content) {
     ev.preventDefault();
-    console.log(id)
     this.props.history.push({
-      pathname:'/article/article-detail',
-      search: `?id=${id}`,
-      // state: {
-      //   articleBody: content
-      // }
-      state: {
-        articlData: content
-      }
+      pathname:`/article/${id}`
     })
   }
   render() {
@@ -50,7 +42,11 @@ class ArticleCard extends Component {
               <div className={styles.review_wrap}>
                 <span className="label_style">阅读({clickSum})</span>
                 <span className="label_style">评论({commentSum})</span>
-                <span className={`${styles.article_link} label_style`} >全文链接-></span>
+                <span className={`${styles.article_link} label_style`} >
+                <NavLink to={{
+                  pathname: `/article/${id}`
+                }}>全文链接-></NavLink>
+                  </span>
               </div>
             </div>
           </div>

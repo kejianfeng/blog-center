@@ -3,47 +3,24 @@ import styles from "./index.module.scss";
 import { withRouter } from "react-router-dom";
 import Comment from "../../../components/comment/index";
 import CommentList from "../../../components/CommentList/index";
-// import { request } from "../../utils/request";
+import { request } from "../../../utils/request";
+import {message} from 'antd'
 
-const commentData = [
-  {
-    id:12,
-    nickname:'jAMKI小剑烽',
-    comment:'那....当然不是，哈哈哈，图是原文作者的，学习了，以后向这个标准对齐',
-    createDate: '2020-04-30',
-    quote: {
-      nickname:' jamki',
-      comment: '我发现你真是一条狗'
-
-    }
-  },
-  {
-    id:45,
-    nickname:'jAMKI小剑烽',
-    comment:'那....当然不是，哈哈哈，图是原文作者的，学习了，以后向这个标准对齐',
-    createDate: '2020-04-30'
-  },
-  {
-    id:178,
-    nickname:'jAMKI小剑烽',
-    comment:'那....当然不是，哈哈哈，图是原文作者的，学习了，以后向这个标准对齐',
-    createDate: '2020-04-30',
-    quote: {
-      nickname:' jamki',
-      comment: '我发现你真是一条狗'
-
-    }
-  }
-]
 class ArticleDetail extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      articleId: null
+      articleId: null,
+      articleData: null,
+      commentData:[],
+      likeSum: 0,
+      isLike: false,
+      isHideClick: false
     };
     this.commentref = this.commentref.bind(this)
     this.hanleQuote = this.hanleQuote.bind(this)
     this.submitComment = this.submitComment.bind(this)
+    this.likeClick = this.likeClick.bind(this)
   }
   hanleQuote(value) { //commentList子组件调用该方法，输出引用内容
     this.child.setQuote(value)
@@ -51,54 +28,86 @@ class ArticleDetail extends Component {
   commentref(ref) { //绑定comment组件上下文到this.child上
     this.child = ref
   }
-  submitComment(info) {
-    console.log('呀呀呀呀', info)
+  async submitComment(info) {
+    const params = Object.assign({}, info, {
+      id: this.state.articleId,
+      type: 1,
+      ...info
+    })
+    const result = await request('/comment/add', 'post', params)
+    // console.log('呀呀呀呀', params)
+    if(result.code === 200) {
+      message.success('提交评论成功了哦')
+      window.location.reload()
+    }
   }
-  componentWillMount() {
-    console.log(this.props)
-    const articleId =  this.props.location.search.match(/(?<=id=)\d+$/)
-    if (articleId) {
+  async componentWillMount() {
+    const id = this.props.location.pathname.match(/\d+$/);
+    if (id) {
       this.setState({
-        articleId: articleId[0]
+        articleId: id[0]
       })
     }else {
-      this.props.history.push('/article')
-      return
+      window.location.href = '/article'
+      // this.props.history.push('/article')
+      return false
     }
-    
-
+  }
+  async likeClick() {
+    this.setState({
+      isHideClick: true
+    })
+    const result = await request('/article/like', 'post', {
+      id: this.state.articleId
+    })
+    result.code === 200 && this.setState({
+      likeSum: this.state.likeSum + 1,
+      isLike: true
+    })
+  }
+  async componentDidMount() {
+    const result = await request('/article/detail', 'post', {
+      id: this.state.articleId
+    })
+    const {data} = result
+    this.setState({
+      articleData: data.article,
+      commentData: data.comment,
+      likeSum: data.article.likeSum
+    })
   }
   render() {
-    const { articlData } = this.props.location.state;
+    const { articleData, commentData, likeSum, isLike, isHideClick } = this.state;
     return (
       <div>
         <div className="container">
           <div className="section">
             <div className={`${styles.content} mt20`}>
-              <article>
+              {
+                articleData && <article>
                 <div className={styles.article_hd}>
-                  <h1 className={styles.title}>{articlData.title}</h1>
+                  <h1 className={styles.title}>{articleData.title}</h1>
                   <div className={styles.head_info}>
                     <div className={styles.time}>
                       <span className="label_style">
                         <i className="iconfont icon-shizhong fs-sm mr5"></i>
-                        {articlData.createTime}
+                        {articleData.createTime}
                       </span>
                       <span className="label_style">
                         <i className="iconfont icon-gengxin fs-sm mr5"></i>
-                        {articlData.updateTime}
+                        {articleData.updateTime}
                       </span>
                     </div>
-                    <span className={styles.topic}>{articlData.topic}</span>
+                    <span className={styles.topic}>{articleData.topic}</span>
                   </div>
                 </div>
                 <div className={styles.article_bd}>
                   <div
-                    dangerouslySetInnerHTML={{ __html: articlData.content }}
+                    dangerouslySetInnerHTML={{ __html: articleData.mainBody }}
                   ></div>
                   <div className={styles.label_wrap}>
                     <i className="iconfont icon-biaoqian fs-sm mr5"></i>
-                    {articlData.labels.split(",").map((label) => (
+                    {articleData.labels.split(",").map((label) => (
                       <span className="label_style" key={label}>
                         {label}
                       </span>
@@ -106,6 +115,7 @@ class ArticleDetail extends Component {
                   </div>
                 </div>
               </article>
+              }
               <div className={styles.pre_next}>
                 <div className={styles.pre_article}>
                   <span>
@@ -122,15 +132,20 @@ class ArticleDetail extends Component {
           </div>
         </div>
         <div className={styles.like}>
-          <span className={styles.like_box}>
+          <span className={styles.like_box} onClick={this.likeClick} style={{'color': isLike ? '#FF6A6A' : '#aaa', 'borderColor': isLike ?'#FF6A6A':'#aaa', 'pointerEvents': isHideClick ? 'none' : 'auto'}}>
             <i className="icon iconfont">&#xe61a;</i>
           </span>
+          {
+            likeSum >0 && <span className={styles.number}>点赞({likeSum})</span>
+          }
         </div>
         <div className="container">
           <div className="section">
             <div className={styles.content}>
-              <CommentList commentData={commentData} hanleQuote={this.hanleQuote}/>
-              <Comment commentref={this.commentref} submitComment={this.submitComment}/>
+              {
+                 commentData.length > 0 && <CommentList commentData={commentData} hanleQuote={this.hanleQuote}/>
+              }
+               <Comment commentref={this.commentref} isComment={true} submitComment={this.submitComment}/>
             </div>
           </div>
         </div>

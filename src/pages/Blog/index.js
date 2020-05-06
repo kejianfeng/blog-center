@@ -13,7 +13,6 @@ class Blog extends Component {
 }
   componentDidMount() {
     request("/blog/bloglist", "get").then(res => {
-      console.log(res)
       this.setState({
         bloglist: res.data
       });
@@ -35,7 +34,7 @@ class Blog extends Component {
               <div className={styles.blog_list}>
                 {
                   this.state.bloglist.map(item => (
-                    <BlogCard blog={item} key={item.id}></BlogCard>
+                    <BlogCard blog={item} isShowButton={true} key={item.id}></BlogCard>
                   ))
                 }
               </div>

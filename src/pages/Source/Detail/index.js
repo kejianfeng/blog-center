@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import styles from "./index.module.scss";
 import qs from "qs";
 import { request } from "../../../utils/request";
+import {CopyToClipboard} from 'react-copy-to-clipboard';
+import { message } from "antd";
 // import { request } from "../../utils/request";
 class SourceDetail extends Component {
   constructor(props) {
@@ -76,10 +78,16 @@ class SourceDetail extends Component {
                     <div className={styles.item}>
                       <span className={styles.item_hd}>链接:</span>
                       <span className={styles.item_bd}>{sourceLink}</span>
+                      <CopyToClipboard text={sourceLink} onCopy={() => message.success('链接复制成功')}>
+                        <span className={styles.copy}>复制</span>
+                      </CopyToClipboard>
                     </div>
                     <div className={styles.item}>
                       <span className={styles.item_hd}>密码:</span>
                       <span className={styles.item_bd}>{sourcePassword}</span>
+                      <CopyToClipboard text={sourcePassword} onCopy={() => message.success('密码复制成功')}>
+                        <span className={styles.copy}>复制</span>
+                      </CopyToClipboard>
                     </div>
                   </div>
                 </div>
