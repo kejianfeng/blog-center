@@ -36,7 +36,7 @@ class PicWorks extends Component {
     return (
       <div className="lg-container">
         <div className="section">
-          <div className={styles.content}>
+          <div className={`${styles.content} border-ra4`}>
             <div className={styles.masonry}>
               <div className={styles.column}>
                 {
@@ -62,6 +62,9 @@ class PicWorks extends Component {
             </div>
           </div>
         </div>
+        <div className="load-more">
+          <span>加载更多<i className="icon iconfont">&#xe612;</i></span>
+          </div>
       </div>  
     );
   }

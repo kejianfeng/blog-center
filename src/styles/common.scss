@@ -53,6 +53,21 @@ $lcolor: #FF6A6A;
   // box-sizing: border-box;
 }
 
+.border-ra4 {
+  border-radius: 4px;
+}
+
+
+//加载更多
+.load-more {
+  text-align: center;
+  padding-bottom: 50px;
+  span {
+    cursor: pointer;
+    font-size: 16px;
+  }
+}
+
 // 两栏布局
 .container-wrap {
   max-width: 1300px;
@@ -73,9 +88,9 @@ $lcolor: #FF6A6A;
 
 //重点布局
 .lg-container {
-  width: 1200px;
+  max-width: 1400px;
   height: auto;
-  margin: 20px auto;
+  margin: 0 auto;
   box-sizing: border-box;
   .section {
     padding:20px;

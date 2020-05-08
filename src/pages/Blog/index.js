@@ -39,6 +39,9 @@ class Blog extends Component {
                 }
               </div>
             </div>
+            <div className="load-more">
+          <span>加载更多<i className="icon iconfont">&#xe612;</i></span>
+        </div>
           </div>
         </div>
       </div>  

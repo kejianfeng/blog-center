@@ -6,6 +6,13 @@
   "description": "博客",
   "glyphs": [
     {
+      "icon_id": "7187503",
+      "name": "加载更多",
+      "font_class": "jiazaigengduo",
+      "unicode": "e612",
+      "unicode_decimal": 58898
+    },
+    {
       "icon_id": "869845",
       "name": "留言",
       "font_class": "liuyan",

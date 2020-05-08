@@ -23,13 +23,16 @@ class Article extends Component {
   render() {
     return (
       <div className='container-wrap'>
-        <div className="col-side mr20"><Person /></div>
+        <div className="col-side mr20 mt20"><Person /></div>
         <div className="col-main">
           <div className="section">
             <div className={styles.content}>
               {this.state.articleList.map((item) => (
                 <ArticleCard articleList={item} key={item.id}></ArticleCard>
               ))}
+              <div className="load-more">
+          <span>加载更多<i className="icon iconfont">&#xe612;</i></span>
+          </div>
             </div>
           </div>
         </div>

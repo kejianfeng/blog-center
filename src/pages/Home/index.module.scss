@@ -1,6 +1,8 @@
 .content {
   background-color: #fff;
   padding: 20px;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px 0 rgba(80,80,80,.11);
   // margin-top: 20px;
   .title {
     text-align: left;
@@ -62,22 +64,12 @@
   width: 100%;
   background:url(https://images.vrm.cn/jx/2020/05/05/pexels-photo-3312664.jpeg) no-repeat center ;
   background-size: cover;
-  padding-bottom: 120px;;
+  padding-bottom: 200px;;
   .box_content {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 40px;
-  // background-color: #fff;
-    // .box_hd {
-    //   width: 200px;
-    //   height: 200px;
-    //   margin: 10px auto;
-    //   border-radius: 50%;
-    //   img {
-    //     width: 100%;
-    //   }
-    // }
     h1 {
       font-size: 36px;
       line-height: 48px;
@@ -116,6 +108,7 @@
           border-radius: 0 25px 25px 0;
           padding: 0 20px;
           box-sizing: border-box;
+          cursor: pointer;
           
         }
       }

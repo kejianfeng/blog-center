@@ -6,8 +6,22 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      sitelist: []
+      sitelist: [],
+      queryVal:''
     };
+    this.query = this.query.bind(this)
+    this.queryInputChange = this.queryInputChange.bind(this)
+  }
+  async query() {
+    const result = await request('/query/site', 'post', {
+      key: this.state.queryVal
+    })
+    console.log(result)
+  }
+  queryInputChange(e) {
+    this.setState({
+      queryVal: e.target.value
+    })
   }
   componentDidMount() {
     request("/home/sitelist", "get").then(res => {
@@ -26,7 +40,6 @@ class Home extends Component {
         })
         return obj
       })
-      console.log(mapList)
       this.setState({
         sitelist: mapList
       });
@@ -42,8 +55,8 @@ class Home extends Component {
               <h1>才華洋溢創作者分享的值得收藏的网站</h1>
               <div className={styles.box_bd}>
                 <div className={styles.search_form}>
-                  <input type="text" className={styles.form_input} />
-                  <span className={styles.form_btn}>立即搜索</span>
+                  <input type="text" className={styles.form_input} value={this.state.queryVal} onChange={(e) => this.queryInputChange(e)}/>
+                  <span className={styles.form_btn} onClick={this.query}>立即搜索</span>
                 </div>
               </div>
             </div>
