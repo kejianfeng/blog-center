@@ -33,11 +33,11 @@ class Source extends Component {
 
 
       <div className='container-wrap'>
-        <div className="col-side mr20"><Person /></div>
+        <div className="col-side mr20 mt20"><Person /></div>
         <div className="col-main">
-        <div className="container">
+        {/* <div className="container"> */}
         <div className="section">
-          <div className={styles.content}>
+          <div className={`${styles.content}  border-ra4`}>
             <div className={styles.source_list}>
               {this.state.sourceList.map((item) => (
                 <div className={styles.source_card} key={item.id}>
@@ -62,7 +62,7 @@ class Source extends Component {
               ))}
             </div>
           </div>
-        </div>
+        {/* </div> */}
       </div>
         </div>
       </div>

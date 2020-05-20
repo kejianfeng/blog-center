@@ -1,5 +1,4 @@
 .article_wrap {
-    width: 900px;
     padding: 40px 45px;
     background-color: #fff;
     margin: 20px auto;
@@ -8,16 +7,31 @@
     box-shadow: 0 1 3px 0px rgba(80,80,80,.11);
     .aricle_hd {
         .title {
+            display: inline-block;
+            position: relative;
             color: #555;
             font-size: 24px;
             margin-bottom: 14px;
             cursor: pointer;
-            transition: all .5s;
-            transform-origin: bottom left;
             &:hover {
-                transform: scale(1.1);
-                color: #7594b3;
+                &::after {
+                    transition: width .5s;
+                    transform-origin: bottom left;
+                    width: 100%;
+                }
             }
+            &::after {
+                position: absolute;
+                content: '';
+                width:0;
+                height: 1px;
+                bottom: -5px;
+                left: 0;
+                background: #333;
+            }
+            // &:hover {
+            //     text-decoration: underline;
+            // }
         }
         .head_info {
             .time {

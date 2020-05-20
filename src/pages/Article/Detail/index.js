@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 import styles from "./index.module.scss";
 import { withRouter } from "react-router-dom";
 import Comment from "../../../components/comment/index";
@@ -79,6 +80,13 @@ class ArticleDetail extends Component {
   render() {
     const { articleData, commentData, likeSum, isLike, isHideClick } = this.state;
     return (
+      <ReactCSSTransitionGroup
+      transitionName="animation1"
+      transitionAppear={true} 
+      transitionAppearTimeout={400}
+      transitionEnterTimeout={400}
+      transitionLeaveTimeout={400}
+    >
       <div>
         <div className="container">
           <div className="section">
@@ -150,6 +158,7 @@ class ArticleDetail extends Component {
           </div>
         </div>
       </div>
+    </ReactCSSTransitionGroup>
     );
   }
 }

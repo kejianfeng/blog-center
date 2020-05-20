@@ -13,6 +13,7 @@
     "lodash": "^4.17.15",
     "node-sass": "^4.13.0",
     "react": "^16.12.0",
+    "react-addons-css-transition-group": "^15.6.2",
     "react-copy-to-clipboard": "^5.0.2",
     "react-dom": "^16.12.0",
     "react-loadable": "^5.5.0",
@@ -32,7 +33,7 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "homepage":".",
+  "homepage": ".",
   "browserslist": {
     "production": [
       ">0.2%",

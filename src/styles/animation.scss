@@ -1,0 +1,76 @@
+/* 动画1 */
+.animation1-appear {
+	opacity: 0.01;
+	// margin-left: -60px;
+	transform: translate3d(-65px,0,0);
+}
+
+.animation1-appear.animation1-appear-active {
+	opacity: 1;
+	// margin-left: 0px;
+  transform: translate3d(0,0,0);
+	transition: all 0.2s cubic-bezier(0.53, 0.15, 0.42, 0.96);
+}
+
+.animation1-enter {
+	opacity: 0.01;
+	transform: translate3d(-100px,0,0);
+}
+
+.animation1-enter.animation1-enter-active {
+	opacity: 1;
+	transform: translate3d(0,0,0);
+	transition: all 0.3s cubic-bezier(0.53, 0.15, 0.42, 0.96);
+}
+
+.animation1-leave {
+	opacity: 1;
+	transform: translate3d(0,0,0);
+	
+}
+
+.animation1-leave.about-leave-active {
+	opacity: 0.01;
+	transform: translate3d(-100px,0,0);
+	transition: all 0.3s linear;
+}
+
+
+
+//动画二
+.animation2-appear {
+	opacity: 0.01;
+	// margin-left: -60px;
+	transform: translate3d(0,0,-65px);
+}
+
+.animation2-appear.animation2-appear-active {
+	opacity: 1;
+	// margin-left: 0px;
+  transform: translate3d(0,0,0);
+	transition: all 0.2s cubic-bezier(0.53, 0.15, 0.42, 0.96);
+}
+
+.animation2-enter {
+	opacity: 0.01;
+	transform: translate3d(0,0,-100px);
+}
+
+.animation2-enter.animation2-enter-active {
+	opacity: 1;
+	transform: translate3d(0,0,0);
+	transition: all 0.3s cubic-bezier(0.53, 0.15, 0.42, 0.96);
+}
+
+.animation2-leave {
+	opacity: 1;
+	transform: translate3d(0,0,0);
+	
+}
+
+.animation2-leave.about-leave-active {
+	opacity: 0.01;
+	transform: translate3d(0,0,-100px);
+	transition: all 0.3s linear;
+}
+

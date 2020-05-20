@@ -2,7 +2,9 @@ import React, {Component} from "react";
 import './index.scss'
 class Loading extends Component{
     render() {
-        return (<div>加载中</div>)
+        return (
+        <div style={{"marginTop":"50px"}}>加载中啦~~~</div>
+        )
     }
 }
 

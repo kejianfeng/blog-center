@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
+import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 import styles from "./index.module.scss";
 import { request } from "../../utils/request";
 
@@ -14,6 +15,7 @@ class Message extends Component {
     };
     this.getAllData = this.getAllData.bind(this);
     this.filterTopic = this.filterTopic.bind(this);
+    this.filterLabel = this.filterLabel.bind(this);
     this.initData = this.initData.bind(this);
     this.handleAll = this.handleAll.bind(this);
   }
@@ -87,13 +89,30 @@ class Message extends Component {
       articleList
     })
   }
+  filterLabel(label) {
+    const filterArr = this.state.originList.filter(item => item.labels.indexOf(label))
+    const articleList = {}
+    filterArr.forEach(item => {
+      this.handleArticle(articleList,item)
+    })
+    this.setState({
+      articleList
+    })
+  }
   componentWillMount() {
     this.getAllData();
   }
   render() {
     const { topicList, labelList, articleList, originList } = this.state;
     return (
-      <div>
+      <ReactCSSTransitionGroup
+      transitionName="animation1"
+      transitionAppear={true} 
+      transitionAppearTimeout={400}
+      transitionEnterTimeout={400}
+      transitionLeaveTimeout={400}
+    >
+       <div>
         <div className={styles.box_main}>
           <div className={styles.box_hd}>
             <span className={`icon iconfont ${styles.icon_archive}`}>
@@ -124,7 +143,7 @@ class Message extends Component {
                   <h4>标签</h4>
                   <ul>
                     {labelList.map((label) => (
-                      <li className={styles.label_item} key={label}>{label}</li>
+                      <li className={styles.label_item} key={label} onClick={(e) => this.filterLabel(label)}>{label}</li>
                     ))}
                   </ul>
                 </div>
@@ -157,6 +176,7 @@ class Message extends Component {
           </div>
         </div>
       </div>
+    </ReactCSSTransitionGroup>
     );
   }
 }

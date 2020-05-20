@@ -1,25 +1,52 @@
 import React, { Component } from "react";
+import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 import styles from "./index.module.scss";
 import { request } from "../../utils/request";
 import { withRouter} from "react-router-dom";
 import BlogCard from '../../components/BlogCard'
 
+const PAGE_LIMIT = 2
 class Blog extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      bloglist: []
+      bloglist: [],
+      curPage:1,
+      totalPage: 0,
     }
-}
-  componentDidMount() {
-    request("/blog/bloglist", "get").then(res => {
+    this.loadMore = this.loadMore.bind(this)
+    this.getList = this.getList.bind(this)
+  }
+  getList() {
+    const {curPage} = this.state
+    request("/blog/bloglist", "get",{
+      curPage,
+      pageLimit: PAGE_LIMIT
+    }).then(res => {
       this.setState({
-        bloglist: res.data
+        totalPage: Math.ceil(res.total/PAGE_LIMIT),
+        bloglist: [...this.state.bloglist, ...res.data]
       });
     });
   }
+  loadMore() {
+    this.setState({curPage: this.state.curPage + 1}, () => {
+      this.getList()
+    })
+  }
+  componentDidMount() {
+    this.getList()
+  }
   render() {
+    const {curPage,totalPage} = this.state
     return (
+      <ReactCSSTransitionGroup
+      transitionName="animation1"
+      transitionAppear={true} 
+      transitionAppearTimeout={400}
+      transitionEnterTimeout={400}
+      transitionLeaveTimeout={400}
+    >
       <div className="container">
         <div className="section">
           <div className={styles.content}>
@@ -40,11 +67,16 @@ class Blog extends Component {
               </div>
             </div>
             <div className="load-more">
-          <span>加载更多<i className="icon iconfont">&#xe612;</i></span>
+            {
+            curPage < totalPage&& (
+            <span onClick={this.loadMore}>加载更多<i className="icon iconfont">&#xe612;</i></span>
+           )
+         }
         </div>
           </div>
         </div>
       </div>  
+    </ReactCSSTransitionGroup>
     );
   }
 }

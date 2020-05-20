@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 import Person from '../../components/Person/index'
 import Comment from "../../components/comment/index";
 import CommentList from "../../components/CommentList/index";
@@ -46,6 +47,13 @@ class Message extends Component {
   render() {
     const { commentData } = this.state;
     return (
+      <ReactCSSTransitionGroup
+            transitionName="animation2"
+            transitionAppear={true} 
+            transitionAppearTimeout={400}
+            transitionEnterTimeout={400}
+            transitionLeaveTimeout={400}
+          >
       <div className={styles.box_main}>
          <div className="container-wrap">
           <div className="col-side">
@@ -70,6 +78,7 @@ class Message extends Component {
             </div>
         </div>  
       </div>
+          </ReactCSSTransitionGroup>
     );
   }
 }

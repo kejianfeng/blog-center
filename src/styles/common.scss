@@ -70,7 +70,7 @@ $lcolor: #FF6A6A;
 
 // 两栏布局
 .container-wrap {
-  max-width: 1300px;
+  max-width: 1200px;
   display: flex;
   // height: auto;
   margin: 0 auto;
@@ -88,7 +88,7 @@ $lcolor: #FF6A6A;
 
 //重点布局
 .lg-container {
-  max-width: 1400px;
+  max-width: 1300px;
   height: auto;
   margin: 0 auto;
   box-sizing: border-box;
@@ -102,6 +102,19 @@ $lcolor: #FF6A6A;
   font-size: 12px;
   color: #aaa;
   margin-right: 10px;
+}
+
+//前置样式
+.prefix {
+  &::before {
+    display: inline-block;
+    content: '';
+    width: 3px;
+    height: 16px;
+    background-color: #888;
+    vertical-align: middle;
+    margin-right: 10px;
+  }
 }
 
 .shadow-1 {

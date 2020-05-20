@@ -3,6 +3,7 @@
   margin: 20px auto;
   max-width: 1400px;
   text-align: left;
+}
   .box_about {
     padding: 20px;
     background-color: #fff;
@@ -20,5 +21,49 @@
         padding-right: 10px;
       }
     }
-}
-}
+  }
+  P {
+    color: #888;
+    line-height: 1.5rem;
+  }
+  .experience {
+    margin-top: 40px;
+    .title {
+      color: #24292c;
+      font-size: 18px;
+      font-weight: 700;
+      // line-height: 1.4rem;
+    }
+    .school_list {
+      padding-left: 20px;
+      list-style-type: disc;
+      li {
+        font-size: 14px;
+        margin-bottom: 14px;
+        line-height: 1.2;
+      }
+    }
+    .job_experience_list {
+      .job_item {
+        margin-bottom: 40px;
+        .company_name {
+          color: #888;
+          font-weight: 700;
+          font-size: 18px;
+        }
+        .experience_list {
+          padding-left: 20px;
+          list-style-type: disc;
+          margin-left: 20px;
+          a {
+            color: #555;
+          }
+          li {
+            margin-bottom: 14px;
+            font-size: 14px;
+            line-height: 1.2;
+          }
+        }
+      }
+    }
+  }
