@@ -40,8 +40,6 @@ class App extends Component {
         <div className="APP-main">
           {this.state.showHeader ? <HeadBar /> : ""}
           {renderRoutes(router)}
-        </div>
-        <div>
           <Footer />
         </div>
       </div>

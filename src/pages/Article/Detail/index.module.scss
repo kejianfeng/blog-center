@@ -30,17 +30,21 @@
 		}
 	}
 	.pre_next {
-		display: flex;
-		justify-content: space-between;
+		// display: flex;
+		// justify-content: space-between;
 		margin-top: 20px;
 		font-size: 16px;
-		color: #aaa;
-		.pre_article {
-
-		}
 		.next_article {
-
+			color: #aaa;
+			cursor: pointer;
+			float: right;
 		}
+		.pre_article {
+			color: #aaa;
+			cursor: pointer;
+			float: left;
+		}
+		
 	}
 }
 .like {

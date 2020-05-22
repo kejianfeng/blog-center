@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 import styles from "./index.module.scss";
 import { withRouter } from "react-router-dom";
@@ -65,35 +65,41 @@ class BlogDetail extends Component {
     const { blogData, commentData } = this.state;
     return (
       <ReactCSSTransitionGroup
-      transitionName="animation1"
-      transitionAppear={true} 
-      transitionAppearTimeout={400}
-      transitionEnterTimeout={400}
-      transitionLeaveTimeout={400}
-    >
-      <div className="container">
-        <div className="section">
-          <div className={styles.content}>
-            {blogData && <BlogCard blog={blogData} isShowButton={false}></BlogCard>}
-            <div className={styles.comment_out_box}>
-              <div className={styles.comment_bd}>
-                {commentData.length > 0 && (
-                  <CommentList
-                    commentData={commentData}
-                    hanleQuote={this.hanleQuote}
-                  />
-                )}
-                <Comment
-                  commentref={this.commentref}
-                  isComment={true}
-                  submitComment={this.submitComment}
-                />
-              </div>
+        transitionName="animation1"
+        transitionAppear={true}
+        transitionAppearTimeout={400}
+        transitionEnterTimeout={400}
+        transitionLeaveTimeout={400}
+      >
+        <div className="container">
+          <div className="section">
+            <div className={styles.content}>
+              {blogData ? (
+                <Fragment>
+                  <BlogCard blog={blogData} isShowButton={false}></BlogCard>}
+                  <div className={styles.comment_out_box}>
+                    <div className={styles.comment_bd}>
+                      {commentData.length > 0 && (
+                        <CommentList
+                          commentData={commentData}
+                          hanleQuote={this.hanleQuote}
+                        />
+                      )}
+                      <Comment
+                        commentref={this.commentref}
+                        isComment={true}
+                        submitComment={this.submitComment}
+                      />
+                    </div>
+                  </div>
+                </Fragment>
+              ) : (
+                <span> 博文不存在</span>
+              )}
             </div>
           </div>
         </div>
-      </div>
-    </ReactCSSTransitionGroup>
+      </ReactCSSTransitionGroup>
     );
   }
 }

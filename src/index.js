@@ -6,7 +6,7 @@ import './styles/index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<BrowserRouter><App /></BrowserRouter>, 
+ReactDOM.render(<BrowserRouter forceRefresh={true}><App /></BrowserRouter>, 
   document.getElementById('root'));
 
 serviceWorker.unregister();
