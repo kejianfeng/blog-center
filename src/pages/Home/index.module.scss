@@ -26,8 +26,9 @@
     list-style: none;
     margin:20px 0;
     .site_item {
-      width: 200px;
+      width: 280px;
       height: 40px;
+      margin-bottom: 20px;
       a {
         display: flex;
         align-items: center;
@@ -62,14 +63,14 @@
 }
 .nav_search {
   width: 100%;
-  background:url(https://images.vrm.cn/jx/2020/05/05/pexels-photo-3312664.jpeg) no-repeat center ;
+  background:url(https://images.vrm.cn/jx/2020/05/23/pexels-photo-A.jpeg) no-repeat center ;
   background-size: cover;
   padding-bottom: 200px;;
   .box_content {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 40px;
+    margin-top: 70px;
     h1 {
       font-size: 36px;
       line-height: 48px;
