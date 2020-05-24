@@ -52,15 +52,15 @@ class Blog extends Component {
           <div className={styles.content}>
             <div className={styles.blog_wrap}>
               <div className={styles.blog_cover}>
-                <img src="https://images.vrm.cn/jx/2020/01/24/8e57c159882179.5a5901b214c44.jpg" className={styles.cover_img} alt="."></img>
+                <img src="https://images.vrm.cn/jx/2020/05/24/myblog-bg.jpg" className={styles.cover_img} alt="."></img>
                 <div className={styles.motto}>
                   <h2>烽芒</h2>
-                  <p>若能光芒四射 何必自甘沉沦</p>
+                  <p style={{"color": "#fff"}}>若能光芒四射 何必自甘沉沦</p>
                 </div>
               </div>
               <div className={styles.blog_list}>
                 {
-                  this.state.bloglist.map(item => (
+                  this.state.bloglist.reverse().map(item => (
                     <BlogCard blog={item} isShowButton={true} key={item.id}></BlogCard>
                   ))
                 }
