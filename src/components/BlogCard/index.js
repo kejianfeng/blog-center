@@ -9,7 +9,7 @@ class BlogCard extends Component {
   }
   render() {
     console.log()
-    const {createTime, blogPic, mianBody, clickSum, commentSum, id, labels} = this.props.blog;
+    const {createTime, blogPic, mainBody, clickSum, commentSum, id, labels} = this.props.blog;
     const {isShowButton} = this.props;
     const date_ = createTime.split("-");
     return (
@@ -31,7 +31,7 @@ class BlogCard extends Component {
                   <img src={blogPic} alt="."/>
                 </div>
               )}
-              {mianBody && <p className={styles.blog_words}>{mianBody}</p>}
+              {mainBody && <p className={styles.blog_words}>{mainBody}</p>}
             </div>
             <div className={styles.label_wrap}>
               {
