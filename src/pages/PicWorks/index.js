@@ -24,13 +24,12 @@ class PicWorks extends Component {
       curPage,
       pageLimit: PAGE_LIMIT
     })).data
-    var i  = 0;
+    let i  = 0;
     const list_length = listData.length
     while(i < list_length) {
       this.setState({
         column_1: [...column_1,listData[i++]]
       })
-      column_1.push(listData[i++])
       i < list_length && this.setState({
         column_2: [...column_2,listData[i++]]
       })
