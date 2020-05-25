@@ -44,7 +44,6 @@ class BlogDetail extends Component {
   }
   componentWillMount() {
     const id = this.props.location.pathname.match(/\d+$/);
-    console.log("哈哈哈哈", id);
     if (id) {
       this.setState({
         blogId: id[0],
@@ -76,7 +75,7 @@ class BlogDetail extends Component {
             <div className={styles.content}>
               {blogData ? (
                 <Fragment>
-                  <BlogCard blog={blogData} isShowButton={false}></BlogCard>}
+                  <BlogCard blog={blogData} isShowButton={false}></BlogCard>
                   <div className={styles.comment_out_box}>
                     <div className={styles.comment_bd}>
                       {commentData.length > 0 && (

@@ -2,9 +2,10 @@ import React, { Component } from "react";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 import styles from "./index.module.scss";
 import { request } from "../../utils/request";
+import setStateAsync from "../../utils/setState";
 import PicCard from '../../components/PicCard/index'
 
-const PAGE_LIMIT = 2
+const PAGE_LIMIT = 8
 class PicWorks extends Component {
   constructor(props) {
     super(props)
@@ -19,23 +20,24 @@ class PicWorks extends Component {
     this.getList = this.getList.bind(this)
   }
   async getList() {
-    const {column_1, column_2, column_3, curPage,} = this.state
+    // const {column_1, column_2, column_3, curPage,} = this.state
+    const {curPage,} = this.state
     const listData = (await request("/picwork/picList", "get",  {
       curPage,
       pageLimit: PAGE_LIMIT
     })).data
-    let i  = 0;
+    var i  = 0;
     const list_length = listData.length
     while(i < list_length) {
-      this.setState({
-        column_1: [...column_1,listData[i++]]
-      })
-      i < list_length && this.setState({
-        column_2: [...column_2,listData[i++]]
-      })
-      i < list_length && this.setState({
-        column_3: [...column_3,listData[i++]]
-      })
+      await setStateAsync({
+        column_1: [...this.state.column_1, listData[i++]]
+      }, this)
+      i < list_length && await setStateAsync({
+        column_2: [...this.state.column_2,listData[i++]]
+      }, this)
+      i < list_length && await setStateAsync({
+        column_3: [...this.state.column_3,listData[i++]]
+      }, this)
     }
   }
   loadMore() {

@@ -5,7 +5,7 @@ import { request } from "../../utils/request";
 import { withRouter} from "react-router-dom";
 import BlogCard from '../../components/BlogCard'
 
-const PAGE_LIMIT = 2
+const PAGE_LIMIT = 8
 class Blog extends Component {
   constructor(props) {
     super(props);

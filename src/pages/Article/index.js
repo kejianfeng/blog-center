@@ -5,7 +5,7 @@ import { request } from "../../utils/request";
 import ArticleCard from "../../components/ArticleCard/index";
 import Person from "../../components/Person/index";
 
-const PAGE_LIMIT = 2
+const PAGE_LIMIT = 8
 // import { Button } from 'antd';
 class Article extends Component {
   constructor(props) {
