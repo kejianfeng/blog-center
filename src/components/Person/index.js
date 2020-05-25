@@ -38,9 +38,9 @@ class Person extends Component{
             </div>
           </div>
           <div className={styles.contact_link}>
-            <a href="//www.baodu.com"><span className="icon iconfont">&#xf1b4;</span>github</a>
-            <a href="//www.baodu.com"><span className="icon iconfont">&#xe600;</span>CSDN</a>
-            <a href="//www.baodu.com"><span className="icon iconfont">&#xe610;</span>掘金</a>
+            <a href="https://github.com/kejianfeng"><span className="icon iconfont">&#xf1b4;</span>github</a>
+            <a href="https://blog.csdn.net/m0_37922914"><span className="icon iconfont">&#xe600;</span>CSDN</a>
+            <a href="https://juejin.im/user/59a78590f265da249b091e57/activities"><span className="icon iconfont">&#xe610;</span>掘金</a>
           </div>
         </div>
         )
