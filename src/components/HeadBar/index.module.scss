@@ -1,4 +1,4 @@
-.head-bar {
+.head_bar {
   // width: 100%;
   height: 80px;
   display: flex;
@@ -15,12 +15,15 @@
   .menu {
     color: #fff;
     margin-right: 20px;
-    .menu-list {
+    .menu_list {
       display: flex;
       margin-left: 10px;
-      .menu-item {
+      .menu_item {
+        a {
+          color: #fff;
+        }
         margin-right: 20px;
-        .active-item {
+        .active_item {
           position: relative;
           transition: all 1s;
           &::after {
