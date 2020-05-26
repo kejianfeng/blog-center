@@ -4,8 +4,8 @@ module.exports = function(app) {
         proxy(
             '/api', 
             { 
-                // target: 'http://localhost:9000/' 
-                target: 'http://47.114.142.101:9000/' 
+                target: 'http://localhost:9000/' 
+                // target: 'http://47.114.142.101:9000/' 
 
             }
     ));

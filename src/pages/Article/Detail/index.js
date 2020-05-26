@@ -144,7 +144,7 @@ class ArticleDetail extends Component {
                           </div>
                         </div>
                         <div className={styles.article_bd}>
-                          <div
+                          <div className="jamki"
                             dangerouslySetInnerHTML={{
                               __html: articleData.mainBody,
                             }}

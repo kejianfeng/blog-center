@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import styles from "./index.module.scss";
 import Zmage from 'react-zmage'
 import { request } from "../../utils/request";
-// import cloneDeep from 'lodash/cloneDeep'
 
 class PicCard extends Component {
     constructor(props) {
