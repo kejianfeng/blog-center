@@ -3,7 +3,7 @@ import styles from "./index.module.scss";
 import qs from "qs";
 import { request } from "../../../utils/request";
 import {CopyToClipboard} from 'react-copy-to-clipboard';
-import { message } from "antd";
+import message from "../../../components/Message";
 // import { request } from "../../utils/request";
 class SourceDetail extends Component {
   constructor(props) {

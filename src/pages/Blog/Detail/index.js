@@ -6,7 +6,7 @@ import BlogCard from "../../../components/BlogCard";
 import Comment from "../../../components/comment/index";
 import CommentList from "../../../components/CommentList/index";
 import { request } from "../../../utils/request";
-import { message } from "antd";
+import message from "../../../components/Message";
 
 // import { request } from "../../utils/request";
 class BlogDetail extends Component {

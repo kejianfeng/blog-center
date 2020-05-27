@@ -5,7 +5,7 @@ import { withRouter, NavLink } from "react-router-dom";
 import Comment from "../../../components/comment/index";
 import CommentList from "../../../components/CommentList/index";
 import { request } from "../../../utils/request";
-import { message } from "antd";
+import message from "../../../components/Message";
 
 class ArticleDetail extends Component {
   constructor(props) {

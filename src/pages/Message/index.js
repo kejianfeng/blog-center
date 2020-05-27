@@ -3,10 +3,9 @@ import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 import Person from '../../components/Person/index'
 import Comment from "../../components/comment/index";
 import CommentList from "../../components/CommentList/index";
-import { message } from "antd";
+import message from "../../components/Message";
 import { request } from "../../utils/request";
 import styles from "./index.module.scss";
-// import { Button } from 'antd';
 class Message extends Component {
   constructor(props) {
     super(props)
@@ -41,7 +40,7 @@ class Message extends Component {
     const result = await request("/message/list", "get");
     const { data } = result;
     this.setState({
-      commentData: data,
+      commentData: data.reverse(),
     });
   }
   render() {

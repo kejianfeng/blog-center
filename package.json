@@ -6,7 +6,6 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
-    "antd": "^4.1.5",
     "axios": "^0.19.0",
     "babel-plugin-import": "^1.13.0",
     "customize-cra": "^0.9.1",
@@ -15,7 +14,6 @@
     "node-sass": "^4.13.0",
     "react": "^16.12.0",
     "react-addons-css-transition-group": "^15.6.2",
-    "react-app-rewired": "^2.1.6",
     "react-copy-to-clipboard": "^5.0.2",
     "react-dom": "^16.12.0",
     "react-loadable": "^5.5.0",
@@ -27,8 +25,8 @@
     "react-zmage": "^0.8.5-beta.36"
   },
   "scripts": {
-    "start": "react-app-rewired start",
-    "build": "react-app-rewired build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
