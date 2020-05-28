@@ -60,7 +60,7 @@ class Blog extends Component {
               </div>
               <div className={styles.blog_list}>
                 {
-                  this.state.bloglist.reverse().map(item => (
+                  this.state.bloglist.map(item => (
                     <BlogCard blog={item} isShowButton={true} key={item.id}></BlogCard>
                   ))
                 }
