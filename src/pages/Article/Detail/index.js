@@ -20,7 +20,9 @@ class ArticleDetail extends Component {
       next: null,
       pre: null,
     };
+    this.articleId = ''
     this.commentref = this.commentref.bind(this);
+    this.getArticleId = this.getArticleId.bind(this);
     this.hanleQuote = this.hanleQuote.bind(this);
     this.submitComment = this.submitComment.bind(this);
     this.likeClick = this.likeClick.bind(this);
@@ -35,7 +37,7 @@ class ArticleDetail extends Component {
   }
   async submitComment(info) {
     const params = Object.assign({}, info, {
-      id: this.state.articleId,
+      id: this.articleId,
       type: 1,
       ...info,
     });
@@ -47,11 +49,20 @@ class ArticleDetail extends Component {
     }
   }
   async componentWillMount() {
-    const id = this.props.location.pathname.match(/\d+$/);
+    this.getArticleId(this.props.location.pathname)
+  }
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.location.pathname !== this.props.location.pathname) {
+      this.getArticleId(nextProps.location.pathname)
+      this.getDetail(this.articleId)
+      window.scrollTo(0,0)
+      this.getGuide()
+    } 
+  }
+  getArticleId(pathname) {
+    const id = pathname.match(/\d+$/);
     if (id) {
-      this.setState({
-        articleId: id[0],
-      });
+        this.articleId = id[0]
     } else {
       window.location.href = "/article";
       // this.props.history.push('/article')
@@ -73,7 +84,7 @@ class ArticleDetail extends Component {
   }
   getGuide() {
     request("/article/guide", "post", {
-      id: this.state.articleId,
+      id: this.articleId,
     }).then((res) => {
       if (res.code === 200) {
         const { next, pre } = res.data;
@@ -84,9 +95,9 @@ class ArticleDetail extends Component {
       }
     });
   }
-  async getDetail() {
+  async getDetail(id) {
     const result = await request("/article/detail", "post", {
-      id: this.state.articleId,
+      id
     });
     const { data } = result;
     this.setState({
@@ -96,7 +107,7 @@ class ArticleDetail extends Component {
     });
   }
   async componentDidMount() {
-    this.getDetail();
+    this.getDetail(this.articleId);
     this.getGuide();
   }
   render() {
