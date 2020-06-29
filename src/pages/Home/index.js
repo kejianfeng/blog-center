@@ -61,7 +61,7 @@ class Home extends Component {
           <HeadBar navBg="transparent"></HeadBar>
           <div className={styles.box_content}>
             <div>
-              <h1>才華洋溢創作者分享的值得收藏的网站</h1>
+              <h1>值得收藏与学习极具价值的站点</h1>
               {/* <div className={styles.box_bd}>
                 <div className={styles.search_form}>
                   <input type="text" className={styles.form_input} value={this.state.queryVal} onChange={(e) => this.queryInputChange(e)}/>
