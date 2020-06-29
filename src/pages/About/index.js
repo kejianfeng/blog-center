@@ -35,7 +35,10 @@ class About extends Component {
                     爱学习 爱玩 爱跳舞 我也有环游世界的梦想
                   </p>
                   <p className="mb20">
-                    大二在师兄的指引下入门前端,一开始觉得很简单，然后...反正拼命学就保持学习就完事了，前端的世界太魔幻
+                    大二在师兄的指引下入门前端,喜欢折腾新技术,坚信自己会成为一名出色的程序员
+                  </p>
+                  <p className="mb20">
+                   对自己的工作不曾疏忽，力求处理好每一个细节
                   </p>
                   <div className={styles.experience}>
                     <h4 className={`prefix mb30 ${styles.title}`}>在校经历</h4>
@@ -68,7 +71,7 @@ class About extends Component {
                           </li>
                           <li>
                             51LA短链系统重构及维护
-                            <a href="https://www.51.la">dwz.51.la</a>）
+                            <a href="https://www.51.la">(dwz.51.la</a>）
                           </li>
                           <li>公司相关管理后台开发</li>
                           <li>活动营销页面开发，主要为移动端</li>

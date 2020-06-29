@@ -74,7 +74,7 @@ class ArticleDetail extends Component {
       isHideClick: true,
     });
     const result = await request("/article/like", "post", {
-      id: this.state.articleId,
+      id: this.articleId,
     });
     result.code === 200 &&
       this.setState({
