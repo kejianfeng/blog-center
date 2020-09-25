@@ -47,5 +47,9 @@
     color: #fff;
     border: none;
     text-align: center;
+    cursor: pointer;
+  }
+  .forbid_click {
+    pointer-events: none;
   }
 }

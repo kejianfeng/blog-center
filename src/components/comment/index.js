@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styles from "./index.module.scss";
+import message from "../../components/Message";
 class Comment extends Component {
   constructor(props) {
     super(props);
@@ -9,7 +10,8 @@ class Comment extends Component {
       email: "",
       site: "",
       quoteNickname: '',
-      quoteComment:''
+      quoteComment:'',
+      isForbidClick:false
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.submit = this.submit.bind(this);
@@ -43,10 +45,29 @@ class Comment extends Component {
       quoteNickname,
       quoteComment
     };
+    if (!comment) {
+      message.error('评论不能为空鸭~~~');
+      return
+    }else if (!nickname) {
+      message.error('昵称也要填鸭~~~');
+      return
+    }else if (!/^[A-Za-z0-9]+([_.][A-Za-z0-9]+)*@([A-Za-z0-9-]+\.)+[A-Za-z]{2,6}$/.test(email)) {
+      message.error('邮箱要符合邮箱格式鸭~~~');
+      return
+    }
+    this.setState({
+      isForbidClick: true
+    })
     this.props.submitComment(info)
+    window.setTimeout(() => {
+      this.setState({
+        isForbidClick: false
+      })
+    }, 5000)
   }
   render() {
     const {isComment} = this.props
+    const {isForbidClick} = this.state
     return (
       <div className={styles.comment}>
         <div className={styles.box_hd}>
@@ -100,7 +121,7 @@ class Comment extends Component {
               ></input>
             </div>
           </div>
-          <button className={styles.submit} onClick={this.submit} type="button">
+          <button className={`${styles.submit} ${isForbidClick ? styles.forbid_click: ''}`} onClick={this.submit} type="button">
             发表
           </button>
         </form>
