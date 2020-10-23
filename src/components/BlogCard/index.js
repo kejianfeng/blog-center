@@ -5,12 +5,19 @@ import { withRouter, NavLink } from "react-router-dom";
 class BlogCard extends Component {
   constructor(props) {
     super(props);
-    this.state ={}
+    this.state = {};
   }
   render() {
-    console.log()
-    const {createTime, blogPic, mainBody, clickSum, commentSum, id, labels} = this.props.blog;
-    const {isShowButton} = this.props;
+    const {
+      createTime,
+      blogPic,
+      mainBody,
+      clickSum,
+      commentSum,
+      id,
+      labels,
+    } = this.props.blog;
+    const { isShowButton } = this.props;
     const date_ = createTime.split("-");
     return (
       <div className={styles.blog_card}>
@@ -28,29 +35,39 @@ class BlogCard extends Component {
             <div className={styles.content}>
               {blogPic && (
                 <div className={styles.blog_img}>
-                  <img src={blogPic} alt="."/>
+                  <img src={blogPic} alt="." />
                 </div>
               )}
-              {mainBody && <p className={styles.blog_words}>{mainBody}</p>}
+              {mainBody && (
+                <p
+                  className={styles.blog_words}
+                  dangerouslySetInnerHTML={{
+                    __html: mainBody,
+                  }}
+                ></p>
+              )}
             </div>
             <div className={styles.label_wrap}>
-              {
-                labels.split(',').map(label => (
-                  <span className={`${styles.label} mr10`} key={label}>
-                  <i>●</i>{label}
-                  </span>
-                ))
-              }
+              {labels.split(",").map((label) => (
+                <span className={`${styles.label} mr10`} key={label}>
+                  <i>●</i>
+                  {label}
+                </span>
+              ))}
             </div>
-            {
-              isShowButton && <div className={styles.bottom_info}>
-              <span>热度({clickSum})</span>
-              <span>评论({commentSum})</span>
-                <NavLink to={{
-                  pathname: `/blog/${id}`
-                }}>全文链接</NavLink>
-            </div>
-            }
+            {isShowButton && (
+              <div className={styles.bottom_info}>
+                <span>热度({clickSum})</span>
+                <span>评论({commentSum})</span>
+                <NavLink
+                  to={{
+                    pathname: `/blog/${id}`,
+                  }}
+                >
+                  全文链接
+                </NavLink>
+              </div>
+            )}
           </div>
           <div className={styles.blog_line}></div>
         </div>
